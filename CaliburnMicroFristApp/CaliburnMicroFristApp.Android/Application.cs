@@ -5,6 +5,7 @@ using Android.App;
 using Android.Runtime;
 using Caliburn.Micro;
 using CaliburnMicroFristApp.ViewModels;
+using Xamarin.Forms;
 
 namespace CaliburnMicroFristApp.Droid
 {
@@ -37,7 +38,7 @@ namespace CaliburnMicroFristApp.Droid
 
             // TODO: Register any Platform-Specific abstractions here
         }
-
+        
         protected override IEnumerable<Assembly> SelectAssemblies()
         {
             // Get a list of all assemblies that will be used

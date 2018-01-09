@@ -5,6 +5,7 @@ using System.Text;
 using Caliburn.Micro;
 using Caliburn.Micro.Xamarin.Forms;
 using CaliburnMicroFristApp.ViewModels;
+using CaliburnMicroFristApp.Views;
 using Xamarin.Forms;
 
 namespace CaliburnMicroFristApp
@@ -15,14 +16,20 @@ namespace CaliburnMicroFristApp
 
         public App(SimpleContainer container)
         {
+            Initialize();
+
             _container = container;
 
             //Initialize types
             container.PerRequest<MainViewModel>();
+            container.PerRequest<DetailViewModel>();
 
             InitializeComponent();
 
-            DisplayRootViewFor<MainViewModel>();
+            //DisplayRootViewFor is for ViewModel first, but it doesn't register the Navigation services
+            //Because of it, we use the View First only on the root view to enable navigation
+            //DisplayRootViewFor<MainViewModel>();
+            DisplayRootView<MainView>();
         }
 
         protected override void PrepareViewFirst(NavigationPage navigationPage)

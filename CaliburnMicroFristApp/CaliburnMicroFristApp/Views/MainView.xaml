@@ -2,10 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CaliburnMicroFristApp.Views"
+             xmlns:forms="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Platform.Xamarin.Forms"
              x:Class="CaliburnMicroFristApp.Views.MainView">
 
-	<Label Text="{Binding MainText}" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+    <StackLayout Orientation="Vertical">
+        <Label Text="{Binding MainText}" 
+               HorizontalOptions="Center" />
+        <Button forms:Message.Attach="Open" Text="Open me"></Button>
+    </StackLayout>
 
 </ContentPage>
