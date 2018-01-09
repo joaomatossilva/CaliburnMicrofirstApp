@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace CaliburnMicroFristApp
+namespace CaliburnMicroFristApp.Views
 {
-    public partial class MainPage : ContentPage
+    public partial class MainView : ContentPage
     {
-        public MainPage()
+        public MainView()
         {
             InitializeComponent();
         }

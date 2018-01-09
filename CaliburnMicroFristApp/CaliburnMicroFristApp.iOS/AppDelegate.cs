@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using Caliburn.Micro;
 using Foundation;
 using UIKit;
 
@@ -13,6 +13,8 @@ namespace CaliburnMicroFristApp.iOS
     [Register("AppDelegate")]
     public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
     {
+        private readonly CaliburnAppDelegate _appDelegate = new CaliburnAppDelegate();
+
         //
         // This method is invoked when the application has loaded and is ready to run. In this 
         // method you should instantiate the window, load the UI into it and then make the window
@@ -23,7 +25,7 @@ namespace CaliburnMicroFristApp.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+            LoadApplication(IoC.Get<App>());
 
             return base.FinishedLaunching(app, options);
         }

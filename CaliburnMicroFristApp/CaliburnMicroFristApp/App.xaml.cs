@@ -2,18 +2,32 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using Caliburn.Micro;
+using Caliburn.Micro.Xamarin.Forms;
+using CaliburnMicroFristApp.ViewModels;
 using Xamarin.Forms;
 
 namespace CaliburnMicroFristApp
 {
-    public partial class App : Application
+    public partial class App : FormsApplication
     {
-        public App()
+        private readonly SimpleContainer _container;
+
+        public App(SimpleContainer container)
         {
+            _container = container;
+
+            //Initialize types
+            container.PerRequest<MainViewModel>();
+
             InitializeComponent();
 
-            MainPage = new CaliburnMicroFristApp.MainPage();
+            DisplayRootViewFor<MainViewModel>();
+        }
+
+        protected override void PrepareViewFirst(NavigationPage navigationPage)
+        {
+            _container.Instance<INavigationService>(new NavigationPageAdapter(navigationPage));
         }
 
         protected override void OnStart()
